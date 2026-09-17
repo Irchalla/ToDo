@@ -1,24 +1,21 @@
-//
-//  ContentView.swift
-//  empty
-//
-//  Created by Khassan Khatuewv on 02.09.2026.
-//
-
 import SwiftUI
 
 struct ContentView: View {
+    @State var userName: String = "some name"
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text(userName)
+            
+            Button {
+                userName = "you're Heisenberg"
+            } label: {
+                Text("Say my name")
+            }
         }
-        .padding()
     }
 }
-
+    
 #Preview {
     ContentView()
 }
