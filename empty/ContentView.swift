@@ -4,7 +4,7 @@ struct ContentView: View {
     @State var userName: String = "some name"
     
     var body: some View {
-        VStack {
+        HStack {
             Text(userName)
             
             Button {
