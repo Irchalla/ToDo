@@ -11,9 +11,14 @@ class TasksVM {
     var tasks: [ToDo] = []
     
     func addTask(title: String) {
+        let trimmed = title.trimmingCharacters(in: .whitespacesAndNewlines)
+        if trimmed.isEmpty {
+            return
+        }
         tasks.append(ToDo(title: title, isCompleted: false))
     }
 }
+
 
 struct ContentView: View {
     @State var tasks = TasksVM()
@@ -32,14 +37,23 @@ struct ContentView: View {
             Spacer()
             
             TextField("Введите заметку", text: $note)
-
+                .padding(20)
+                .font(.headline)
+                .foregroundColor(.white)
+                .background(Color.gray)
+                .cornerRadius(50)
+            
             Button {
-                tasks.addTask(title: "New task")
+                tasks.addTask(title: note)
                 note = ""
             } label: {
                 Text("Add note")
             }
             .padding()
+            .font(.headline)
+            .foregroundColor(.black)
+            .background(Color.blue)
+            .cornerRadius(10)
         }
     }
 }
